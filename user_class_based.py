@@ -13,7 +13,7 @@ class RandomUser:
         '''
         response = requests.get(self.url)
         if response.status_code == 200:
-            return response.json()
+            return  response.json()
         return False
     
     def get_cell(self) -> str:
@@ -31,7 +31,8 @@ class RandomUser:
         Returns:
             str: user city
         '''
-        pass
+        data=self.get_randomuser()
+        return data['results'][0]['location']['city']
     
     def get_dob(self) -> dict:
         '''get user dob from randomuser
@@ -39,7 +40,8 @@ class RandomUser:
         Returns:
             dict: user dob
         '''
-        pass
+        data = self.get_randomuser()
+        return data['results'][0]['dob']
     
     def get_email(self) -> str:
         '''get user email from randomuser
@@ -48,6 +50,7 @@ class RandomUser:
             str: user email
         '''
         pass
+        
     
     def get_email(self) -> str:
         '''get user email from randomuser
@@ -55,7 +58,8 @@ class RandomUser:
         Returns:
             str: user email
         '''
-        pass
+        data=self.get_randomuser()
+        return data['results'][0]['email']
     
     def get_first_name(self) -> str:
         '''get user first name from randomuser
@@ -63,7 +67,8 @@ class RandomUser:
         Returns:
             str: user first name
         '''
-        pass
+        data=self.get_randomuser()
+        return data['results'][0]['name']['first']
     
     def get_last_name(self) -> str:
         '''get user last name from randomuser
@@ -71,7 +76,8 @@ class RandomUser:
         Returns:
             str: user last name
         '''
-        pass
+        data=self.get_randomuser()
+        return data['results'][0]['name']['last']
     
     def get_full_name(self) -> str:
         '''get user full name from randomuser
@@ -79,7 +85,9 @@ class RandomUser:
         Returns:
             str: user full name
         '''
-        pass
+        # chiqmadi
+        data=self.get_randomuser()
+        return data['results'][0]['full']
     
     def get_gender(self) -> str:
         '''get user gender from randomuser
@@ -87,7 +95,8 @@ class RandomUser:
         Returns:
             str: user gender
         '''
-        pass
+        data=self.get_randomuser()
+        return data['results'][0]['gender']
     
     def get_id(self) -> dict:
         '''get user id from randomuser
@@ -95,7 +104,8 @@ class RandomUser:
         Returns:
             dict: user id
         '''
-        pass
+        data=self.get_randomuser()
+        return data['results'][0]['id']
     
     def get_id_number(self) -> str:
         '''get user id number from randomuser
@@ -103,7 +113,8 @@ class RandomUser:
         Returns:
             str: user id number
         '''
-        pass
+        data=self.get_randomuser()
+        return data['results'][0]['id']['value']
     
     def get_info(self) -> dict:
         '''get user info from randomuser
@@ -111,7 +122,9 @@ class RandomUser:
         Returns:
             dict: user info
         '''
-        pass
+        # chiqmadi
+        data=self.get_randomuser()
+        return data['results'][0]['info']
     
     def get_nat(self) -> str:
         '''get user nat from randomuser
@@ -119,7 +132,8 @@ class RandomUser:
         Returns:
             str: user nat
         '''
-        pass
+        data=self.get_randomuser()
+        return data['results'][0]['nat']
     
     def get_picture(self) -> dict:
         '''get user picture from randomuser
@@ -127,9 +141,12 @@ class RandomUser:
         Returns:
             dict: user picture
         '''
-        pass
+        data=self.get_randomuser()
+        return data['results'][0]['picture']
 
 
 randomuser = RandomUser()
-print(randomuser.get_randomuser())
-print(randomuser.get_cell())
+print(randomuser.get_full_name())
+print(randomuser.get_id_number())
+print(randomuser.get_nat())
+print(randomuser.get_dob())
