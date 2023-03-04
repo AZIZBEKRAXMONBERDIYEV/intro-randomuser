@@ -85,9 +85,10 @@ class RandomUser:
         Returns:
             str: user full name
         '''
-        # chiqmadi
         data=self.get_randomuser()
-        return data['results'][0]['full']
+        s1 = data['results'][0]['name']['first'] 
+        s2 = data['results'][0]['name']['last']
+        return f'{s1} {s2}'
     
     def get_gender(self) -> str:
         '''get user gender from randomuser
@@ -122,9 +123,8 @@ class RandomUser:
         Returns:
             dict: user info
         '''
-        # chiqmadi
         data=self.get_randomuser()
-        return data['results'][0]['info']
+        return data['info']
     
     def get_nat(self) -> str:
         '''get user nat from randomuser
@@ -147,6 +147,6 @@ class RandomUser:
 
 randomuser = RandomUser()
 print(randomuser.get_full_name())
-print(randomuser.get_id_number())
-print(randomuser.get_nat())
-print(randomuser.get_dob())
+# print(randomuser.get_id_number())
+# print(randomuser.get_nat())
+# print(randomuser.get_dob())
